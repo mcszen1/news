@@ -19,6 +19,10 @@ def coletar_noticias(termo, limite=20):
 
 def gerar_codigo_incorporacao(resultados):
     html = "<ul>"
+    html += '<li>O noticiário abaixo está sendo coletado automaticamente</li>'
+    html += '<li>Essa é uma prova de conceito desenvolvida pelo LABCOM</li>'
+    html += f'<li>O termo de busca foi: {termo_de_busca}</li>'
+    html += '<br>'  # Adiciona uma linha em branco para separação
     for res in resultados:
         if len(res) >= 2:
             titulo_url = res[0].split("](")
