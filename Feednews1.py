@@ -86,7 +86,7 @@ def generate_wordcloud(text):
     plt.figure(figsize=(10,5))
     plt.imshow(wordcloud, interpolation='bilinear')
     plt.axis('off')
-    plt.show()
+    st.pyplot(plt)
 
 file_types = ["txt", "docx", "pdf"]
 filename = st.file_uploader('Insira seu arquivo', type=file_types)
