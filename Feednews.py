@@ -51,8 +51,12 @@ def main():
 
         # Gerar e exibir o código de incorporação
         embed_code = gerar_codigo_incorporacao(resultados)
-        st.write("### Código de Incorporação:")
-        st.code(embed_code, language="html")
+        col1, col2 = st.beta_columns([1,2])
+        with col1:
+            st.write("### Código de Incorporação:")
+            st.code(embed_code, language="html")
+        
+
 
 if __name__ == "__main__":
     main()
