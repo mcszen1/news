@@ -45,7 +45,7 @@ def url_to_text(url):
 def bytestotext(filename, file_type):
     if file_type == "txt":
         return filename.getvalue().decode('utf-8')
-    elif file_type == "docx":
+    elif "docx" in file_type:
         return docx_to_text(filename.getvalue())
     elif file_type == "pdf":
         return pdf_to_text(filename.getvalue())
