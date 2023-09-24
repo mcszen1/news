@@ -17,7 +17,7 @@ def coletar_noticias(termo, limite=20):
     return noticias
 
 def main():
-    st.title("Coletor de Notícias do Google News")
+    st.title("Coletor de Notícias")
     
     termo = st.text_input("Insira o termo de busca:", value="criptomoedas")
     if st.button("Buscar Notícias"):
