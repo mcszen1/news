@@ -30,10 +30,10 @@ def docx_to_text(content):
 # Função para converter PDF em texto
 def pdf_to_text(content):
     pdf_file = io.BytesIO(content)
-    reader = PyPDF2.PdfFileReader(pdf_file)
+    reader = PyPDF2.PdfReader(pdf_file)
     text = ""
-    for page_num in range(reader.numPages):
-        text += reader.getPage(page_num).extractText()
+    for page_num in range(len(reader.pages)):
+        text += reader.pages[page_num].extract_text()
     return text
 
 # Função para converter URL em texto
