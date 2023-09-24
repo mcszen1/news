@@ -32,7 +32,6 @@ def gerar_codigo_incorporacao(resultados):
                 data = res[1]
                 html += f'''
                 <li style="margin-bottom: 10px;"><a href="{url}" style="font-size: 18px; font-weight: bold; color: #1A73E8; text-decoration: none;">{titulo}</a><br>
-                <a href="{url}" style="font-size: 14px; color: #1A73E8; text-decoration: none;">{url}</a><br>
                 <span style="font-size: 12px; color: #777;">{data}</span></li>'''
 
     html += "</ul>"
