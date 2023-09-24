@@ -107,9 +107,7 @@ if filename:
     plt.title(str(numero)+' Palavras mais frequentes')
     plt.gca().invert_yaxis()  # para exibir a palavra mais comum no topo
     st.pyplot(plt)
-
-    generate_wordcloud()
-    
+  
 elif url:
     text = url_to_text(url)
     top_words = frequentes(text, numero)
