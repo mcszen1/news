@@ -18,17 +18,17 @@ def coletar_noticias(termo, limite=20):
     return noticias
 
 def gerar_codigo_incorporacao(resultados):
-    html = '<ul>'
+    html = "<ul>"
     for res in resultados:
-        if "Title" in res and "URL" in res and "Date Created" in res:
-            titulo = res["Title"]
-            link = res["URL"]
-            data = res["Date Created"]
-            html += f'<li><a href="{link}">{titulo}</a> ({data})</li>'
-    html += '</ul>'
+        if len(res) >= 2:
+            titulo_url = res[0].split("](")
+            if len(titulo_url) == 2:
+                titulo = titulo_url[0][1:]
+                url = titulo_url[1][:-1]
+                data = res[1]
+                html += f'<li><a href="{url}">{titulo}</a> ({data})</li>'
+    html += "</ul>"
     return html
-
-
 
 def main():
     st.image('labcom_logo_preto.jpg')
@@ -45,7 +45,7 @@ def main():
         for res in resultados:
             st.write(f"- {res[0]} ({res[1]})")
 
-        st.write(resultados)
+
 
         # Gerar e exibir o código de incorporação
         embed_code = gerar_codigo_incorporacao(resultados)
