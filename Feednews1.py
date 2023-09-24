@@ -71,7 +71,7 @@ def frequentes(text, numero):
     return word_count.most_common(numero)
 
 #Função para gerar nuvem de palavras
-def generate_wordcloud(text):
+def generate_wordcloud():
     # Tokenize and filter text using the logic from the code
     #translator = str.maketrans('', '', string.punctuation)
     #words = [word.lower().translate(translator) for word in text.split()]
@@ -81,7 +81,9 @@ def generate_wordcloud(text):
     #textos = [t for t in words if t.lower() not in stopw1 if len(t) > 2]
     
     # Generate WordCloud
-    wordcloud = WordCloud(width=800, height=400, background_color='white').generate(textos)
+    wordcloud = WordCloud()
+    wordcloud.generate_from_frequencies(frequencies=dict(Counter(textos).most_common(50)))
+    #wordcloud = WordCloud(width=800, height=400, background_color='white').generate(textos)
     st.image(wordcloud.to_array())
     # Display using matplotlib (similar to how Streamlit would display it)
     #plt.figure(figsize=(10,5))
@@ -106,7 +108,7 @@ if filename:
     plt.gca().invert_yaxis()  # para exibir a palavra mais comum no topo
     st.pyplot(plt)
 
-    generate_wordcloud(text)
+    generate_wordcloud()
     
 elif url:
     text = url_to_text(url)
