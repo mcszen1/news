@@ -18,7 +18,7 @@ def coletar_noticias(termo, limite=20):
     return noticias
 
 def gerar_codigo_incorporacao(resultados):
-   html = "<ul>"
+    html = "<ul>"
     for res in resultados:
         if len(res) >= 2:
             titulo_url = res[0].split("](")
