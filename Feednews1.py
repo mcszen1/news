@@ -72,12 +72,12 @@ def frequentes(text, numero):
 #Função para gerar nuvem de palavras
 def generate_wordcloud(text):
     # Tokenize and filter text using the logic from the code
-    translator = str.maketrans('', '', string.punctuation)
-    words = [word.lower().translate(translator) for word in text.split()]
+    #translator = str.maketrans('', '', string.punctuation)
+    #words = [word.lower().translate(translator) for word in text.split()]
 
-    with open('stop_words_brazil.txt', mode='r', encoding='utf-8') as file:
-        stopw1 = [str(s.strip()) for s in file.readlines()]
-    textos = [t for t in words if t.lower() not in stopw1 if len(t) > 2]
+    #with open('stop_words_brazil.txt', mode='r', encoding='utf-8') as file:
+        #stopw1 = [str(s.strip()) for s in file.readlines()]
+    #textos = [t for t in words if t.lower() not in stopw1 if len(t) > 2]
     
     # Generate WordCloud
     wordcloud = WordCloud(width=800, height=400, background_color='white').generate(textos)
