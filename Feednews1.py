@@ -62,6 +62,7 @@ def frequentes(text, numero):
     with open('stop_words_brazil.txt', mode='r', encoding='utf-8') as file:
         stopw1 = [str(s.strip()) for s in file.readlines()]
     textos = [t for t in words if t.lower() not in stopw1 if len(t) > 2]
+    st.session_state.textos = textos
 
     # Contagem de palavras
     word_count = Counter(textos)
@@ -81,12 +82,12 @@ def generate_wordcloud(text):
     
     # Generate WordCloud
     wordcloud = WordCloud(width=800, height=400, background_color='white').generate(textos)
-    
+    st.image(wordcloud.to_array())
     # Display using matplotlib (similar to how Streamlit would display it)
-    plt.figure(figsize=(10,5))
-    plt.imshow(wordcloud, interpolation='bilinear')
-    plt.axis('off')
-    st.pyplot(plt)
+    #plt.figure(figsize=(10,5))
+    #plt.imshow(wordcloud, interpolation='bilinear')
+    #plt.axis('off')
+    #st.pyplot(plt)
 
 file_types = ["txt", "docx", "pdf"]
 filename = st.file_uploader('Insira seu arquivo', type=file_types)
