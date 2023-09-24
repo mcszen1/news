@@ -44,7 +44,9 @@ def main():
         st.write("### Resultados:")
         for res in resultados:
             st.write(f"- {res[0]} ({res[1]})")
-        
+
+        st.write(resultados)
+
         # Gerar e exibir o código de incorporação
         embed_code = gerar_codigo_incorporacao(resultados)
         st.write("### Código de Incorporação:")
