@@ -27,14 +27,15 @@ def main():
         
     termo = st.text_input("Insira o termo de busca:", value="criptomoedas")
     if st.button("Buscar Notícias"):
-        resultados = coletar_noticias(termo)
-        st.write("### Resultados:")
-        for res in resultados:
-            st.write(f"- {res[0]} ({res[1]})")
-        # Gerar e exibir o código de incorporação
-        embed_code = gerar_codigo_incorporacao(resultados)
-        st.write("### Código de Incorporação:")
-        st.code(embed_code, language="html")
+    resultados = coletar_noticias(termo)
+    st.write("### Resultados:")
+    for res in resultados:
+        st.write(f"- {res[0]} ({res[1]})")
+    
+    # Gerar e exibir o código de incorporação
+    embed_code = gerar_codigo_incorporacao(resultados)
+    st.write("### Código de Incorporação:")
+    st.code(embed_code, language="html")
 
 if __name__ == "__main__":
     main()
