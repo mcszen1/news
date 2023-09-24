@@ -19,7 +19,7 @@ def coletar_noticias(termo, limite=20):
 
 def gerar_codigo_incorporacao(resultados):
     html = "<ul>"
-   html += '<h1>O noticiário abaixo está sendo coletado automaticamente</h1>'
+    html += '<h1>O noticiário abaixo está sendo coletado automaticamente</h1>'
     html += '<h2>Essa é uma prova de conceito desenvolvida pelo LABCOM</h2>'
     
     html += '<br>'  # Adiciona uma linha em branco para separação
