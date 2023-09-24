@@ -20,7 +20,10 @@ def coletar_noticias(termo, limite=20):
 def gerar_codigo_incorporacao(resultados):
     html = '<ul>'
     for res in resultados:
-        html += f'<li><a href="{res[1]}">{res[0]}</a> ({res[2]})</li>'
+        titulo = res["Title"]
+        link = res["URL"]
+        data = res["Date Created"]
+        html += f'<li><a href="{link}">{titulo}</a> ({data})</li>'
     html += '</ul>'
     return html
 
