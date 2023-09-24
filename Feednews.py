@@ -18,7 +18,7 @@ def coletar_noticias(termo, limite=20):
     return noticias
 
 def gerar_codigo_incorporacao(resultados):
-    html = "<ul>"
+   html = "<ul>"
     for res in resultados:
         if len(res) >= 2:
             titulo_url = res[0].split("](")
@@ -44,8 +44,6 @@ def main():
         st.write("### Resultados:")
         for res in resultados:
             st.write(f"- {res[0]} ({res[1]})")
-
-
 
         # Gerar e exibir o código de incorporação
         embed_code = gerar_codigo_incorporacao(resultados)
