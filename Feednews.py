@@ -17,6 +17,13 @@ def coletar_noticias(termo, limite=20):
         noticias.append([link_clicavel, data])
     return noticias
 
+def gerar_codigo_incorporacao(resultados):
+    html = '<ul>'
+    for res in resultados:
+        html += f'<li><a href="{res[1]}">{res[0]}</a> ({res[2]})</li>'
+    html += '</ul>'
+    return html
+
 def main():
     st.image('labcom_logo_preto.jpg')
 
