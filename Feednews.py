@@ -17,7 +17,7 @@ def coletar_noticias(termo, limite=20):
         noticias.append([link_clicavel, data])
     return noticias
 
-def gerar_codigo_incorporacao(resultados):
+def gerar_codigo_incorporacao(resultados,termo):
     html = "<ul>"
     html += '<li>O noticiário abaixo está sendo coletado automaticamente</li>'
     html += '<li>Essa é uma prova de conceito desenvolvida pelo LABCOM</li>'
