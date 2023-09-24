@@ -4,6 +4,7 @@ from collections import Counter
 import matplotlib.pyplot as plt
 import string
 import io
+from wordcloud import WordCloud
 
 # Importando bibliotecas adicionais
 from docx import Document
@@ -52,6 +53,7 @@ def bytestotext(filename, file_type):
     else:
         raise ValueError("Unsupported file type")
 
+#Função que mostra palavras frequentes
 def frequentes(text, numero):
     # Tokenização
     translator = str.maketrans('', '', string.punctuation)
@@ -66,6 +68,25 @@ def frequentes(text, numero):
 
     # Liste as palavras mais frequentes
     return word_count.most_common(numero)
+
+#Função para gerar nuvem de palavras
+def generate_wordcloud(text):
+    # Tokenize and filter text using the logic from the code
+    translator = str.maketrans('', '', string.punctuation)
+    words = [word.lower().translate(translator) for word in text.split()]
+
+    with open('stop_words_brazil.txt', mode='r', encoding='utf-8') as file:
+        stopw1 = [str(s.strip()) for s in file.readlines()]
+    textos = [t for t in words if t.lower() not in stopw1 if len(t) > 2]
+    
+    # Generate WordCloud
+    wordcloud = WordCloud(width=800, height=400, background_color='white').generate(textos)
+    
+    # Display using matplotlib (similar to how Streamlit would display it)
+    plt.figure(figsize=(10,5))
+    plt.imshow(wordcloud, interpolation='bilinear')
+    plt.axis('off')
+    plt.show()
 
 file_types = ["txt", "docx", "pdf"]
 filename = st.file_uploader('Insira seu arquivo', type=file_types)
@@ -84,6 +105,8 @@ if filename:
     plt.gca().invert_yaxis()  # para exibir a palavra mais comum no topo
     st.pyplot(plt)
 
+    generate_wordcloud(text)
+    
 elif url:
     text = url_to_text(url)
     top_words = frequentes(text, numero)
