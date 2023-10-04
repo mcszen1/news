@@ -72,7 +72,7 @@ def main():
             readtext(noticias[i])
             textos.append(content)
         for noti in textos:
-            #st.write(f"- {noti[0]} ({noti[1]})")
+            st.write(f"- {noti[0]} ({noti[1]})")
         
 
         # Gerar e exibir o código de incorporação
