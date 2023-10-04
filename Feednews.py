@@ -70,8 +70,8 @@ def main():
         for i in range(len(noticias)):
             readtext(noticias[i][0])
             textos.append(content)
-            for noti in textos:
-                st.write(noti)
+
+        st.write(textos)
            
         
 
