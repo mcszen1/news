@@ -69,19 +69,19 @@ def main():
 
         for i in range(len(noticias)):
             st.write(noticias[i]
-            #readtext(noticias[i])
-            #textos.append(content)
-        #for noti in textos:
+            readtext(noticias[i])
+            textos.append(content)
+        for noti in textos:
             #st.write(f"- {noti[0]} ({noti[1]})")
         
 
         # Gerar e exibir o código de incorporação
-        #embed_code = gerar_codigo_incorporacao(resultados)
-        #col1, col2 = st.columns([0.3,0.7])
-        #with col1:
+        embed_code = gerar_codigo_incorporacao(resultados)
+        col1, col2 = st.columns([0.3,0.7])
+        with col1:
             #st.write("### Código de Incorporação:")
-        #with col2:
-            #st.code(embed_code, language="html")
+        with col2:
+            st.code(embed_code, language="html")
         
 
 
