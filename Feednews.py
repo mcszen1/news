@@ -66,14 +66,7 @@ def main():
         st.write("### Resultados:")
         for res in resultados:
             st.write(f"- {res[0]} ({res[1]})")
-
-        for i in range(len(noticias)):
-            readtext(noticias[i][0])
-            textos.append(content)
-
-        st.write(textos)
-           
-        
+       
 
         # Gerar e exibir o código de incorporação
         embed_code = gerar_codigo_incorporacao(resultados)
