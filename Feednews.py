@@ -3,7 +3,7 @@ import streamlit as st
 from urllib.parse import quote_plus
 from newspaper import Article
 from newspaper import ArticleException
-
+textos=[]
 def coletar_noticias(termo, limite=20):
     termo_codificado = quote_plus(termo)  # codificar o termo de pesquisa
     url = f"https://news.google.com/rss/search?q={termo_codificado}&hl=pt-BR&gl=BR&ceid=BR%3Apt-419"
@@ -65,6 +65,13 @@ def main():
         st.write("### Resultados:")
         for res in resultados:
             st.write(f"- {res[0]} ({res[1]})")
+
+        for i in range(len(noticias)):
+            readtext(links[i])
+            textos.append(content)
+        for noti in textos:
+            st.write(f"- {noti[0]} ({noti[1]})")
+        
 
         # Gerar e exibir o código de incorporação
         embed_code = gerar_codigo_incorporacao(resultados)
