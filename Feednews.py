@@ -1,7 +1,8 @@
 import feedparser
 import streamlit as st
 from urllib.parse import quote_plus
-
+from newspaper import Article
+from newspaper import ArticleException
 
 def coletar_noticias(termo, limite=20):
     termo_codificado = quote_plus(termo)  # codificar o termo de pesquisa
@@ -36,6 +37,19 @@ def gerar_codigo_incorporacao(resultados):
 
     html += "</ul>"
     return html
+
+def readtext(link):
+    article=Article(link)
+    try:
+        article.download()
+        article.parse()
+        global content
+        content=article.text
+        print("Coletando :"+link)
+        return content    
+    except ArticleException:
+        content=""
+        pass    
 
 def main():
     st.image('labcom_logo_preto.jpg')
