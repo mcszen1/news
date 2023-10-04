@@ -68,7 +68,7 @@ def main():
             st.write(f"- {res[0]} ({res[1]})")
 
         for i in range(len(noticias)):
-            st.write(noticias[i]
+            st.write(noticias[i])
             readtext(noticias[i])
             textos.append(content)
         for noti in textos:
