@@ -9,6 +9,7 @@ def coletar_noticias(termo, limite=20):
     url = f"https://news.google.com/rss/search?q={termo_codificado}&hl=pt-BR&gl=BR&ceid=BR%3Apt-419"
     feed = feedparser.parse(url)
     entradas = feed.entries[:limite]
+    global noticias
     noticias = []
     for entrada in entradas:
         titulo = entrada.title
