@@ -71,7 +71,7 @@ def main():
             readtext(noticias[i][0])
             textos.append(content)
             for noti in textos:
-                st.write(f"- {noti[0]} ({noti[1]})")
+                st.write(noti)
            
         
 
