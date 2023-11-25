@@ -55,8 +55,6 @@ def readtext(link):
 def main():
     st.image('labcom_logo_preto.jpg')
 
-    st.title('LABCOM Collect')
-
     st.header('Coletor de notícias do LABCOM')
     st.write('Digite um tópico e dê ENTER. Depois clique em BUSCAR NOTÍCIAS')
         
