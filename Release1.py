@@ -37,7 +37,7 @@ uploaded_audio = st.file_uploader("Carregue o arquivo de áudio para transcriç�
 #content=uploaded_audio.getvalue()
 if uploaded_audio is not None:
     # Cria um arquivo temporário para armazenar o conteúdo do arquivo carregado
-    with NamedTemporaryFile(delete=False, delete_on_close=True, suffix=os.path.splitext(uploaded_audio.name)[1]) as tmp_file:
+    with NamedTemporaryFile(delete=False, suffix=os.path.splitext(uploaded_audio.name)[1]) as tmp_file:
         tmp_file.write(uploaded_audio.getvalue())
         file_path = tmp_file.name  # Guarda o caminho do arquivo temporário
  
