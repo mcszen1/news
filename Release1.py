@@ -22,7 +22,7 @@ def generate_release_with_gpt(inputs):
 
 def transcribe_audio(file):
     #audio_file = open(uploaded_audio,"rb")
-    transcript = client.audio.transcriptions.create(model="whisper-1", file=uploaded_file.getvalue())
+    transcript = client.audio.transcriptions.create(model="whisper-1", file=uploaded_audio.getvalue())
     return transcript['text']
 
 # Criação da interface do usuário no Streamlit
