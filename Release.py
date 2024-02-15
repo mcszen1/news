@@ -2,7 +2,7 @@ import streamlit as st
 from openai import OpenAI
 import tempfile
 
-openai.api_key = st.secrets["OPENAI_API_KEY"]  # Adicione sua chave de API nas Configurações de Segredo do Streamlit
+#openai.api_key = st.secrets["OPENAI_API_KEY"]  # Adicione sua chave de API nas Configurações de Segredo do Streamlit
 client=OpenAI()
 
 # Função para gerar o texto do release com GPT
