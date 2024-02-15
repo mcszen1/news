@@ -34,18 +34,16 @@ st.write('Geração a partir de uma arquivo de áudio')
 st.write('Se não tiver áudio insira as informações nos campos abaixo')
 uploaded_audio = st.file_uploader("Carregue o arquivo de áudio para transcrição", type=['mp3', 'wav', 'm4a', 'flac'])
 if uploaded_audio is not None:
-    with tempfile.NamedTemporaryFile(delete=False, suffix=f".{uploaded_audio.type.split('/')[1]}") as tmpfile:
-        tmpfile.write(uploaded_audio.getvalue())
-        st.write("Transcrevendo o áudio... Aguarde.")
-        transcription = transcribe_audio(tmpfile.name)
-        st.text_area("Transcrição do áudio:", transcription, height=150)
+    st.write("Transcrevendo o áudio... Aguarde.")
+    transcription = transcribe_audio(uploaded_audio)
+    st.text_area("Transcrição do áudio:", transcription, height=500)
 
         # Botão para gerar o release a partir da transcrição
-        if st.button('Gerar Release com Áudio'):
-            prompt = f"Escreva um release de imprensa com base nas informações da seguinte transcrição:\n{transcription}\nPor favor, mantenha um tom profissional e informativo."
-            release_text = generate_release_with_gpt(prompt)
-            st.subheader('Preview do Release gerado pela IA a partir da transcrição:')
-            st.text_area('Texto do Release:', release_text, height=500)
+if st.button('Gerar Release com Áudio'):
+    prompt = f"Escreva um release de imprensa com base nas informações da seguinte transcrição:\n{transcription}\nPor favor, mantenha um tom profissional e informativo."
+    release_text = generate_release_with_gpt(prompt)
+    st.subheader('Preview do Release gerado pela IA a partir da transcrição:')
+    st.text_area('Texto do Release:', release_text, height=500)
 
 st.write('Geração com dados inseridos pelo usuário')
 
