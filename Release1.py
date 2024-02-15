@@ -21,7 +21,7 @@ def generate_release_with_gpt(inputs):
     return response.choices[0].text
 
 def transcribe_audio(file_path):
-    with open(file_path, "rb") as audio_file:
+    audio_file = open(content,"rb")
         transcript = client.audio.transcriptions.create(
             model="whisper-1",
             file=audio_file
