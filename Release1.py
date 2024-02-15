@@ -35,6 +35,7 @@ st.write('Se não tiver áudio insira as informações nos campos abaixo')
 uploaded_audio = st.file_uploader("Carregue o arquivo de áudio para transcrição", type=['mp3', 'wav', 'm4a', 'flac'])
 content=uploaded_audio.getvalue()
 if uploaded_audio is not None:
+    content=uploaded_audio.getvalue()
     st.write("Transcrevendo o áudio... Aguarde.")
     transcription = transcribe_audio(content)
     st.text_area("Transcrição do áudio:", transcription, height=500)
