@@ -21,11 +21,8 @@ def generate_release_with_gpt(inputs):
     return response.choices[0].text
 
 def transcribe_audio(file_path):
-    audio_file = open(content,"rb")
-        transcript = client.audio.transcriptions.create(
-            model="whisper-1",
-            file=audio_file
-        )
+    audio_file = open(uploaded_audio,"rb")
+    transcript = client.audio.transcriptions.create(model="whisper-1", file=audio_file)
     return transcript['text']
 
 # Criação da interface do usuário no Streamlit
@@ -33,11 +30,11 @@ st.title('Gerador de Release de Imprensa com IA')
 st.write('Geração a partir de uma arquivo de áudio')
 st.write('Se não tiver áudio insira as informações nos campos abaixo')
 uploaded_audio = st.file_uploader("Carregue o arquivo de áudio para transcrição", type=['mp3', 'wav', 'm4a', 'flac'])
-content=uploaded_audio.getvalue()
+#content=uploaded_audio.getvalue()
 if uploaded_audio is not None:
-    content=uploaded_audio.getvalue()
+    #content=uploaded_audio.getvalue()
     st.write("Transcrevendo o áudio... Aguarde.")
-    transcription = transcribe_audio(content)
+    transcription = transcribe_audio(uploaded_audio)
     st.text_area("Transcrição do áudio:", transcription, height=500)
 
         # Botão para gerar o release a partir da transcrição
