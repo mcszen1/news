@@ -22,8 +22,8 @@ def generate_release_with_gpt(inputs):
     )
     return response.choices[0].text
 
-def transcribe_audio(file):
-    audio_file = open(file_path,"rb")
+def transcribe_audio():
+    audio_file = open(uploaded_audio,"rb")
     transcript = client.audio.transcriptions.create(model="whisper-1", file=audio_file)
     return transcript['text']
 
@@ -42,7 +42,7 @@ if uploaded_audio is not None:
     # Agora você pode usar 'file_path' como o caminho para o arquivo em seu código
     st.write(f'O caminho para o seu arquivo é: {file_path}')
     st.write("Transcrevendo o áudio... Aguarde.")
-    transcription = transcribe_audio(file_path)
+    transcription = transcribe_audio()
     st.text_area("Transcrição do áudio:", transcription, height=500)
 
         # Botão para gerar o release a partir da transcrição
