@@ -24,14 +24,14 @@ def generate_release_with_gpt(inputs):
 st.title('Gerador de Release de Imprensa com IA')
 
 # Coletando inputs do usuário
-title = st.text_input('Título do Release:', 'Digite aqui o título')
-date = st.text_input('Data de Publicação:', 'Digite a data')
-location = st.text_input('Local:', 'Digite o local')
-introduction = st.text_area('Introdução (Lead):', 'Digite a introdução')
-context = st.text_area('Contexto Detalhado:', 'Digite o contexto')
+title = st.text_input('FATO EM UMA LINHA :')
+date = st.time_input('QUANDO : ')
+location = st.text_input('ONDE:', 'Digite o local')
+introduction = st.text_area('COMO:', 'Detalhe o que aconteceu')
+context = st.text_area('DESCREVA UM CONTEXTO:', 'Por que , detalhes, ect : ')
 statements = st.text_area('Declarações e Citações:', 'Inclua as declarações aqui')
-highlights = st.text_area('Destaques e Diferenciais:', 'Descreva os destaques aqui')
-applications = st.text_area('Como (Aplicações):', 'Explique as aplicações aqui')
+highlights = st.text_area('Destaques e Diferenciais:', 'Tópicos que quer destacar :')
+applications = st.text_area('Detalhes adicionais :')
 implications = st.text_area('Implicações e Benefícios:', 'Descreva as implicações e benefícios aqui')
 contact_info = st.text_area('Informações de Contato:', 'Inclua as informações de contato aqui')
 
