@@ -9,7 +9,7 @@ client=OpenAI()
 # Função para gerar o texto do release com GPT
 def generate_release_with_gpt(inputs):
     
-    response = openai.completions.create(
+    response = client.completions.create(
         model="gpt-3.5-turbo-instruct",  # Ou qualquer outro modelo atual que você preferir
         prompt=inputs,
         max_tokens=1024,
