@@ -41,7 +41,7 @@ if uploaded_audio is not None:
         tmp_file.write(uploaded_audio.getvalue())
         file_path = tmp_file.name  # Guarda o caminho do arquivo temporário
         with open("speech.mp3","wb") as content:
-            content.write(tmp_file)
+            content.write(tmp_file.read())
             content.close()
 
     # Agora você pode usar 'file_path' como o caminho para o arquivo em seu código
