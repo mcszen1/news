@@ -1,7 +1,9 @@
 import streamlit as st
+import os
+from tempfile import NamedTemporaryFile
 import openai
 from openai import OpenAI
-import tempfile
+
 
 #openai.api_key = st.secrets["OPENAI_API_KEY"]  # Adicione sua chave de API nas Configurações de Segredo do Streamlit
 client=OpenAI()
@@ -20,9 +22,9 @@ def generate_release_with_gpt(inputs):
     )
     return response.choices[0].text
 
-def transcribe_audio(file):
+def transcribe_audio(file_path):
     #audio_file = open(uploaded_audio,"rb")
-    transcript = client.audio.transcriptions.create(model="whisper-1", file=uploaded_audio.getvalue())
+    transcript = client.audio.transcriptions.create(model="whisper-1", file=audio_file)
     return transcript['text']
 
 # Criação da interface do usuário no Streamlit
@@ -32,9 +34,15 @@ st.write('Se não tiver áudio insira as informações nos campos abaixo')
 uploaded_audio = st.file_uploader("Carregue o arquivo de áudio para transcrição", type=['mp3', 'wav', 'm4a', 'flac'])
 #content=uploaded_audio.getvalue()
 if uploaded_audio is not None:
-    #content=uploaded_audio.getvalue()
+    # Cria um arquivo temporário para armazenar o conteúdo do arquivo carregado
+    with NamedTemporaryFile(delete=False, suffix=os.path.splitext(uploaded_file.name)[1]) as tmp_file:
+        tmp_file.write(uploaded_file.getvalue())
+        file_path = tmp_file.name  # Guarda o caminho do arquivo temporário
+
+    # Agora você pode usar 'file_path' como o caminho para o arquivo em seu código
+    st.write(f'O caminho para o seu arquivo é: {file_path}')
     st.write("Transcrevendo o áudio... Aguarde.")
-    transcription = transcribe_audio(uploaded_audio)
+    transcription = transcribe_audio(file_path)
     st.text_area("Transcrição do áudio:", transcription, height=500)
 
         # Botão para gerar o release a partir da transcrição
