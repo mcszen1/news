@@ -24,7 +24,7 @@ def generate_release_with_gpt(inputs):
 
 def transcribe_audio():
  
-    audio_file=open('speech.mp3','rb')
+    audio_file=file_path.read()
     
     transcript = client.audio.transcriptions.create(model="whisper-1", file=audio_file)
     return transcript['text']
@@ -40,9 +40,7 @@ if uploaded_audio is not None:
     with NamedTemporaryFile(delete=False, suffix=os.path.splitext(uploaded_audio.name)[1]) as tmp_file:
         tmp_file.write(uploaded_audio.getvalue())
         file_path = tmp_file.name  # Guarda o caminho do arquivo temporário
-        with open("speech.mp3","wb") as content:
-            content.write(tmp_file.read())
-            content.close()
+ 
 
     # Agora você pode usar 'file_path' como o caminho para o arquivo em seu código
     st.write(f'O caminho para o seu arquivo é: {file_path}')
