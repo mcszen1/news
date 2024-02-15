@@ -53,12 +53,12 @@ prompt = (f"Escreva um release de imprensa com as seguintes informações:\n"
 if st.button('Gerar Release com IA'):
     release_text = generate_release_with_gpt(prompt)
     st.subheader('Preview do Release gerado pela IA:')
-    release_text_area = st.text_area('Texto do Release:', release_text, height=300)
+    release_text_area = st.text_area('Texto do Release:', release_text, height=500)
 
     # Botão para gerar uma nova versão do release
     if st.button('Gerar Nova Versão'):
         release_text = generate_release_with_gpt(prompt)
-        release_text_area = st.text_area('Texto do Release:', release_text, height=300)
+        release_text_area = st.text_area('Texto do Release:', release_text, height=500)
 
     # Criando um arquivo de texto para download
     with tempfile.NamedTemporaryFile(delete=False, suffix='.txt') as tmpfile:
