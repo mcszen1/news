@@ -18,7 +18,7 @@ def generate_release_with_gpt(inputs):
         frequency_penalty=0,
         presence_penalty=0
     )
-    return completions.choices[0].message.content
+    return response.completions.choices[0].text.content
 
 # Criação da interface do usuário no Streamlit
 st.title('Gerador de Release de Imprensa com IA')
