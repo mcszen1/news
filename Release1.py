@@ -20,9 +20,9 @@ def generate_release_with_gpt(inputs):
     )
     return response.choices[0].text
 
-def transcribe_audio(file_path):
-    audio_file = open(uploaded_audio,"rb")
-    transcript = client.audio.transcriptions.create(model="whisper-1", file=audio_file)
+def transcribe_audio(file):
+    #audio_file = open(uploaded_audio,"rb")
+    transcript = client.audio.transcriptions.create(model="whisper-1", file=uploaded_file.getvalue())
     return transcript['text']
 
 # Criação da interface do usuário no Streamlit
