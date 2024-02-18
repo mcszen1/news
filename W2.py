@@ -22,7 +22,7 @@ def analyze_audio_with_whisper(audio_path):
     return transcript  # Retorna o texto transcrito
 
 # Interface do usuário para upload de arquivo de áudio
-uploaded_file = st.file_uploader("Escolha um arquivo de áudio...", type=["mp3", "wav", "ogg", "flac", "m4a", "mp4", "mpeg", "mpga", "oga", "webm"])
+uploaded_file = st.file_uploader("Escolha um arquivo de áudio...", type=["ogg"])
 if uploaded_file:
     # Salvar o arquivo de áudio carregado localmente
     audio_filename = save_uploaded_audio(uploaded_file)
