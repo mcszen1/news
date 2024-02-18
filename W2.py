@@ -2,6 +2,7 @@ import base64
 import streamlit as st
 from openai import OpenAI
 import os
+from io import BytesIO
 
 # Função para salvar o arquivo de áudio carregado localmente
 def save_uploaded_audio(uploaded_file):
