@@ -18,7 +18,7 @@ def analyze_audio_with_whisper(audio_path):
             model="whisper-1",
             file=audio_file, response_format="text"
         )
-    return transcript['text']  # Retorna o texto transcrito
+    #return transcript['text']  # Retorna o texto transcrito
 
 # Interface do usuário para upload de arquivo de áudio
 uploaded_file = st.file_uploader("Escolha um arquivo de áudio...", type=["mp3", "wav", "ogg", "flac", "m4a", "mp4", "mpeg", "mpga", "oga", "webm"])
