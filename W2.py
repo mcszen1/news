@@ -36,7 +36,7 @@ if uploaded_file:
     # Exibir a transcrição do áudio
     st.text("Transcrição do áudio:")
     col1, col2 = st.columns([1, 3])  # Ajuste as proporções conforme necessário
-    with col2:  # Usar col2 para a transcrição torna o texto menos largo
+    with col1:  # Usar col2 para a transcrição torna o texto menos largo
         st.text(description)
     #st.text(description)
 
