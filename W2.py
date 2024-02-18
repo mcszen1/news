@@ -42,11 +42,8 @@ if uploaded_file:
         f.write(description)
 
      # Disponibilizar o arquivo para download
-        with open(transcription_filename, 'rb') as f:
-            st.download_button(label="Baixar transcrição como texto", data=f,
-                    file_name=transcription_filename,
-                    mime='text/plain'
-                )
+     with open(transcription_filename, 'rb') as f:
+         st.download_button(label="Baixar transcrição como texto", data=f, file_name=transcription_filename, mime='text/plain')
   
    
 
