@@ -38,7 +38,7 @@ if uploaded_file:
     st.text(description)
     
     transcription_bytes = BytesIO(description.encode('utf-8'))
-            st.download_button(
+    st.download_button(
                 label="Baixar transcrição como texto",
                 data=transcription_bytes,
                 file_name='transcription.txt',
