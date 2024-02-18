@@ -24,10 +24,8 @@ def analyze_audio_with_whisper(audio_path):
 # Interface do usuário para upload de arquivo de áudio
 uploaded_file = st.file_uploader("Escolha um arquivo de áudio...", type=["mp3", "wav", "ogg", "flac"])
 if uploaded_file:
-    if uploaded_file:
-    # Obter o tipo de mídia do arquivo carregado
-    audio_mimetype = uploaded_file.type
-    audio_filename = save_uploaded_audio(uploaded_file.read(), audio_mimetype)
+    
+    audio_mimetype = uploaded_file.typeaudio_filename = save_uploaded_audio(uploaded_file.read(), audio_mimetype)
    
     # Exibir o áudio no Streamlit para que o usuário possa ouvir
     st.audio(audio_filename, format='audio/mp3', start_time=0)
