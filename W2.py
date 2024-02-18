@@ -16,7 +16,7 @@ def analyze_audio_with_whisper(audio_path):
     with open(audio_path, "rb") as audio_file:
         transcript = client.audio.transcriptions.create(
             model="whisper-1",
-            file=audio_file
+            file=audio_file, response_format="text"
         )
     return transcript['text']  # Retorna o texto transcrito
 
