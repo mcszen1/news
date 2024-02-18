@@ -36,6 +36,17 @@ if uploaded_file:
     # Exibir a transcrição do áudio
     st.text("Transcrição do áudio:")
     st.text(description)
+     # Salvar a transcrição em um arquivo .txt
+    transcription_filename = 'transcription.txt'
+    with open(transcription_filename, 'w') as f:
+        f.write(description)
 
+     # Disponibilizar o arquivo para download
+        with open(transcription_filename, 'rb') as f:
+            st.download_button(label="Baixar transcrição como texto", data=f,
+                    file_name=transcription_filename,
+                    mime='text/plain'
+                )
+  
    
 
