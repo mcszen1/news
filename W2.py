@@ -27,7 +27,8 @@ st.image('NIDLogo.jpg')
 
 st.title('Transcriptor ')
 
-st.header('Com seu arquivo de áudio faça a transcrição para ajudar no seu trabalho')
+st.write('Com seu arquivo de áudio faço a transcrição para ajudar no seu trabalho')
+st.write('Envie arquivos em ogg, wav ou mp3 apenas')
 uploaded_file = st.file_uploader("Escolha um arquivo de áudio...", type=["ogg","wav","mp3"])
 if uploaded_file:
     # Salvar o arquivo de áudio carregado localmente
