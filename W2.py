@@ -22,6 +22,12 @@ def analyze_audio_with_whisper(audio_path):
     return transcript  # Retorna o texto transcrito
 
 # Interface do usuário para upload de arquivo de áudio
+
+st.image('NIDLogo.jpg')
+
+st.title('Transcriptor ')
+
+st.header('Com seu arquivo de áudio faça a transcrição para ajudar no seu trabalho')
 uploaded_file = st.file_uploader("Escolha um arquivo de áudio...", type=["ogg","wav","mp3"])
 if uploaded_file:
     # Salvar o arquivo de áudio carregado localmente
